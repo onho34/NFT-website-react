@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'EuclidCircular';
+    src: local('EuclidCircular'),
+         url('../assets/fonts/euclid-circular-a-cufonfonts/Euclid Circular A Regular.ttf') format('truetype'), /* Super Modern Browsers */
+}
+
+html {
+    font-family: EuclidCircular, sans-serif;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .88);
+}
+
+html, body {
+    background: rgba(12,10,29,.96);
+}
