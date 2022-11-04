@@ -13,3 +13,16 @@ html {
 html, body {
     background: rgba(12,10,29,.96);
 }
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: var(--gds-container-padding);
+    padding-right: var(--gds-container-padding);
+}
