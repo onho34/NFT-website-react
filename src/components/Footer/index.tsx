@@ -1,5 +1,6 @@
 import { GitHub, Mail, Twitter, Facebook, Instagram } from "react-feather"
 import styled from "styled-components"
+import { Link } from 'react-scroll'
 
 const Wrapper = styled.div`
     padding-top: 32px;
@@ -170,23 +171,58 @@ export const Footer = () => {
                     <nav>
                         <ul>
                             <li>
-                                <a>Home</a>
+                                <Link
+                                    smooth={true} 
+                                    duration={500} 
+                                    spy={true} 
+                                    to={ 'home' }
+                                >
+                                    Home
+                                </Link>
                             </li>
 
                             <li>
-                                <a>Mint</a>
+                                <Link
+                                    smooth={true} 
+                                    duration={500} 
+                                    spy={true} 
+                                    to={ 'mint' }
+                                >
+                                    Mint
+                                </Link>
                             </li>
 
                             <li>
-                                <a>Map</a>
+                                <Link
+                                    smooth={true} 
+                                    duration={500} 
+                                    spy={true} 
+                                    to={ 'map' }
+                                >
+                                    Map
+                                </Link>
                             </li>
 
                             <li>
-                                <a>NFT</a>
+                                <Link
+                                    smooth={true} 
+                                    duration={500} 
+                                    spy={true} 
+                                    to={ 'nft' }
+                                >
+                                    NFT
+                                </Link>
                             </li>
 
                             <li>
-                                <a>FAQ</a>
+                                <Link
+                                    smooth={true} 
+                                    duration={500} 
+                                    spy={true} 
+                                    to={ 'faq' }
+                                >
+                                    FAQ
+                                </Link>
                             </li>
                         </ul>
 

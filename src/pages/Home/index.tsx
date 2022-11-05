@@ -35,14 +35,22 @@ export const Home = () => {
             <Suspense fallback={<Loader />}>
                 <Header />
 
-                <Spacer />
-                <Intro />
+                <div id="home">
+                    <Spacer />
+                    <Intro />
+                </div>
 
-                <NFTShow />
+                <div id="nft">
+                    <NFTShow />
+                </div>
 
-                <MintBox />
+                <div id="mint">
+                    <MintBox />
+                </div>
 
-                <FaqComponent />
+                <div id="faq">
+                    <FaqComponent />
+                </div>
 
                 <Footer />
             </Suspense>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import logoImg from '../../assets/images/logo.svg'
 import { NormalButton } from "../../theme/components";
+import { Link } from 'react-scroll'
 
 const Wrapper = styled.header`
     z-index: 100;
@@ -81,19 +82,58 @@ export const Header = () => {
                     </LogoImg>
 
                     <MenuItem>
-                        Mint
+                        <Link
+                            smooth={true} 
+                            duration={500} 
+                            spy={true} 
+                            to={ 'home' }
+                        >
+                            Home
+                        </Link>
                     </MenuItem>
 
                     <MenuItem>
-                        Map
+                        <Link
+                            smooth={true} 
+                            duration={500} 
+                            spy={true} 
+                            to={ 'mint' }
+                        >
+                            Mint
+                        </Link>
                     </MenuItem>
 
                     <MenuItem>
-                        NFT
+                        <Link
+                            smooth={true} 
+                            duration={500} 
+                            spy={true} 
+                            to={ 'map' }
+                        >
+                            Map
+                        </Link>
                     </MenuItem>
 
                     <MenuItem>
-                        FAQ
+                        <Link
+                            smooth={true} 
+                            duration={500} 
+                            spy={true} 
+                            to={ 'nft' }
+                        >
+                            NFT
+                        </Link>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <Link
+                            smooth={true} 
+                            duration={500} 
+                            spy={true} 
+                            to={ 'faq' }
+                        >
+                            FAQ
+                        </Link>
                     </MenuItem>
                 </div>
 
