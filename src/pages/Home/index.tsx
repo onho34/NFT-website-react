@@ -17,7 +17,7 @@ const Wrapper = styled.div`
         --gds-header-height-visible: 96px;
     }
 
-    @media screen and (max-width: 749px) {
+    @media screen and (max-width: 768px) {
         --gds-container-padding: 16px;
         --gds-header-height: 64px;
         --gds-header-height-visible: 64px;

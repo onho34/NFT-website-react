@@ -31,6 +31,14 @@ const GridBg = styled.div`
     &.fade {
         opacity: 0;
     }
+
+    @media(max-width: 768px) {
+        width: 100%;
+
+        &.expand {
+            width: 100%;
+        }
+    }
 `
 
 const CornerGrid = styled.div`
@@ -80,6 +88,10 @@ const Content = styled.div`
     width: 65%;
     margin: auto;
     text-align: center;
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const Title = styled.h2`
@@ -94,6 +106,11 @@ const Title = styled.h2`
     .newline {
         display: none;
     }
+
+    @media(max-width: 768px) {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
 `
 
 const Description = styled.p`
@@ -101,6 +118,11 @@ const Description = styled.p`
     line-height: 2rem;
     margin: 0px;
     color: rgba(255,255,255,.88);
+
+    @media(max-width: 768px) {
+        width: 75%;
+        margin: auto;
+    }
 `
 
 const Squares = () => {
@@ -134,7 +156,7 @@ export const MintBox = () => {
     })
 
     return (
-        <Wrapper className="relative">            
+        <Wrapper className="relative">
             <div>
                 <GridBg className={`${ !active ? `fade expand` : '' }`}>
                     <CornerGrid className="absolute top-left">

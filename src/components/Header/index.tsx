@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logoImg from '../../assets/images/logo.svg'
 import { NormalButton } from "../../theme/components";
 import { Link } from 'react-scroll'
+import MenuSideBar from "../MenuSideBar";
 
 const Wrapper = styled.header`
     z-index: 100;
@@ -15,7 +16,7 @@ const Wrapper = styled.header`
     opacity: 0;
     background-color: rgba(12, 10, 29, 0.88);
     backdrop-filter: blur(32px);
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    border-bottom: 1px solid rgb(145 145 145 / 20%);
     transition: color 400ms ease 0s, background-color 400ms ease 0s, border-color 400ms ease 0s, text-decoration-color 400ms ease 0s, fill 400ms ease 0s, stroke 400ms ease 0s, opacity 400ms ease 0s, box-shadow 400ms ease 0s, text-shadow 400ms ease 0s, transform 400ms ease 0s, filter 400ms ease 0s, backdrop-filter 400ms ease 0s;
 
     &.active {
@@ -51,11 +52,31 @@ const LogoImg = styled.div`
     }
 `
 
+const MenuGroup = styled.div`
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+`
+
+const MenuIcon = styled.div`
+    @media screen and (max-width: 768px) {
+        display: block;
+    }
+
+    img {
+        pointer-events: none;
+    }
+`
+
 export const Header = () => {
     const [active, setActive] = useState('active')
     const [lastScroll, setLastScroll] = useState(0)
 
+    const [showSideBar, setShowSideBar] = useState(false)
+
     const handleScroll = () => {
+        setShowSideBar(false)
+
         if( window.scrollY <= lastScroll ) {
             setActive('active')
         } else {
@@ -81,68 +102,76 @@ export const Header = () => {
                         <img alt="pic" src={logoImg}></img>
                     </LogoImg>
 
-                    <MenuItem>
-                        <Link
-                            smooth={true} 
-                            duration={500} 
-                            spy={true} 
-                            to={ 'home' }
-                        >
-                            Home
-                        </Link>
-                    </MenuItem>
+                    <MenuGroup className="flex justify-center items-center">
+                        <MenuItem>
+                            <Link
+                                smooth={true} 
+                                duration={500} 
+                                spy={true} 
+                                to={ 'home' }
+                            >
+                                Home
+                            </Link>
+                        </MenuItem>
 
-                    <MenuItem>
-                        <Link
-                            smooth={true} 
-                            duration={500} 
-                            spy={true} 
-                            to={ 'mint' }
-                        >
-                            Mint
-                        </Link>
-                    </MenuItem>
+                        <MenuItem>
+                            <Link
+                                smooth={true} 
+                                duration={500} 
+                                spy={true} 
+                                to={ 'mint' }
+                            >
+                                Mint
+                            </Link>
+                        </MenuItem>
 
-                    <MenuItem>
-                        <Link
-                            smooth={true} 
-                            duration={500} 
-                            spy={true} 
-                            to={ 'map' }
-                        >
-                            Map
-                        </Link>
-                    </MenuItem>
+                        <MenuItem>
+                            <Link
+                                smooth={true} 
+                                duration={500} 
+                                spy={true} 
+                                to={ 'map' }
+                            >
+                                Map
+                            </Link>
+                        </MenuItem>
 
-                    <MenuItem>
-                        <Link
-                            smooth={true} 
-                            duration={500} 
-                            spy={true} 
-                            to={ 'nft' }
-                        >
-                            NFT
-                        </Link>
-                    </MenuItem>
+                        <MenuItem>
+                            <Link
+                                smooth={true} 
+                                duration={500} 
+                                spy={true} 
+                                to={ 'nft' }
+                            >
+                                NFT
+                            </Link>
+                        </MenuItem>
 
-                    <MenuItem>
-                        <Link
-                            smooth={true} 
-                            duration={500} 
-                            spy={true} 
-                            to={ 'faq' }
-                        >
-                            FAQ
-                        </Link>
-                    </MenuItem>
+                        <MenuItem>
+                            <Link
+                                smooth={true} 
+                                duration={500} 
+                                spy={true} 
+                                to={ 'faq' }
+                            >
+                                FAQ
+                            </Link>
+                        </MenuItem>
+                    </MenuGroup>
                 </div>
 
-                <div>
+                <div className="flex justify-center items-center">
                     <NormalButton>
                         Connect Wallet
                     </NormalButton>
+
+                    <MenuIcon id="dropdownMenuBtn" className="ml-2" onClick={() => setShowSideBar(true)}>
+                        <img src="/assets/images/menuIcon.svg" alt="pic"></img>
+                    </MenuIcon>
                 </div>
             </div>
+
+            <MenuSideBar show={showSideBar} setShow={(value: any) => setShowSideBar(value)} />
         </Wrapper>
     )
 }

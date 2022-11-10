@@ -16,7 +16,6 @@ html, body {
 
 body {
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 .container {
@@ -25,4 +24,8 @@ body {
 
     padding-left: var(--gds-container-padding);
     padding-right: var(--gds-container-padding);
+}
+
+.App {
+    overflow-x: hidden;
 }

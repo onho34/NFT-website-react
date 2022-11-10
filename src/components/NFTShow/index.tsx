@@ -68,6 +68,10 @@ const LeftPanel = styled.div`
             }
         }
     }
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const RightPanel = styled.div`
@@ -92,6 +96,26 @@ const RightPanel = styled.div`
         line-height: 2rem;
         margin: 0px;
         color: rgba(255,255,255,.88);
+    }
+
+    @media(max-width: 768px) {
+        text-align: center;
+        width: 100%;
+        padding-inline-start: 0%;
+
+        .title {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            line-height: 2rem;
+            margin: 0px;
+            color: rgba(255,255,255,.88);
+
+            margin-bottom: 2rem;
+        }
     }
 `
 
@@ -118,6 +142,12 @@ const ImageWrapper = styled.div`
     }
 `
 
+const PanelWrapper = styled.div`
+    @media(max-width: 768px) {
+        flex-direction: column-reverse;
+    }
+`
+
 export const NFTShow = () => {
     const settings = {
         dots: true,
@@ -137,7 +167,7 @@ export const NFTShow = () => {
             <ContentWrapper>
                 <Spacer />
 
-                <div className="m-0 flex">
+                <PanelWrapper className="m-0 flex">
                     <LeftPanel className="relative">
                         <Slider {...settings}>
                             <ImageWrapper>
@@ -200,7 +230,7 @@ export const NFTShow = () => {
                             Subgraphs can be composed into a global graph of all the world's public information. This data can be transformed, organized, and shared across applications for anyone to query with just a few keystrokes.
                         </p>
                     </RightPanel>
-                </div>
+                </PanelWrapper>
             </ContentWrapper>
         </Wrapper>
     )

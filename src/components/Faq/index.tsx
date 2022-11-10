@@ -97,6 +97,14 @@ const QuestionAnswer = styled.div`
     text-align: left;
 `
 
+const QuestionWrapper = styled.div`
+    width: 80%;
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
+`
+
 export const FaqComponent = () => {
     const data = {
         rows: [
@@ -157,11 +165,11 @@ export const FaqComponent = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                    <div className="w-4/5">
+                    <QuestionWrapper>
                         { data.rows.map((item: any, index: number) => (
                             <Question key={`question${ index }`} title={ item.title } content={ item.content } index={ index }/>
                         )) }
-                    </div>
+                    </QuestionWrapper>
                 </div>
             </Wrapper>
         </>

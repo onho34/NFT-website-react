@@ -9,6 +9,10 @@ const LeftPanel = styled.div`
     z-index: 10;
     pointer-events: none;
     margin-top: -5px;
+
+    @media(max-width: 768px) {
+        flex-basis: 100%;
+    }
 `
 
 const Title = styled.h1`
@@ -21,6 +25,11 @@ const Title = styled.h1`
     pointer-events: none;
     margin-bottom: 3rem;
     margin-top: 0rem;
+
+    @media(max-width: 768px) {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
 `
 
 const SubTitle = styled.p`
@@ -30,6 +39,10 @@ const SubTitle = styled.p`
     color: rgba(255,255,255,.88);
     margin-bottom: 1rem;
     width: 70%;
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const ButtonWrapper = styled.div`
@@ -43,6 +56,14 @@ const RightPanel = styled.div`
     right: 0px;
     top: -40px;
     pointer-events: none;
+
+    @media(max-width: 768px) {
+        left: 0;
+        right: auto;
+        height: 300px;
+        top: -90px;
+        opacity: 0.5;
+    }
 `
 
 const GalleryWrapper = styled.div`
@@ -61,11 +82,34 @@ const GalleryWrapper = styled.div`
     img {
         height: 100%;
     }
+
+    @media(max-width: 768px) {
+
+    }
+`
+
+const ColdBG = styled.div`
+    display: none;
+
+    @media(max-width: 768px) {
+        display: block;
+        background-image: radial-gradient(100% 100%, rgba(111,76,255,0.32) 0%, rgba(76,102,255,0.00) 100%);
+        width: 840px;
+        height: 840px;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: -150px;
+        opacity: 0.32;
+        z-index: 5;
+    }
 `
 
 export const Intro = () => {
     return (
         <div className="relative flex">
+            <ColdBG />
+
             <LeftPanel>
                 <Title>
                     NFTs <br/> for a vibrant <br/> decentralized <br/> lottery
