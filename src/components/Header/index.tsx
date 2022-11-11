@@ -4,6 +4,7 @@ import logoImg from '../../assets/images/logo.svg'
 import { NormalButton } from "../../theme/components";
 import { Link } from 'react-scroll'
 import MenuSideBar from "../MenuSideBar";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.header`
     z-index: 100;
@@ -59,6 +60,8 @@ const MenuGroup = styled.div`
 `
 
 const MenuIcon = styled.div`
+    display: none;
+
     @media screen and (max-width: 768px) {
         display: block;
     }
@@ -69,6 +72,8 @@ const MenuIcon = styled.div`
 `
 
 export const Header = () => {
+    const navigate = useNavigate()
+
     const [active, setActive] = useState('active')
     const [lastScroll, setLastScroll] = useState(0)
 
@@ -125,15 +130,8 @@ export const Header = () => {
                             </Link>
                         </MenuItem>
 
-                        <MenuItem>
-                            <Link
-                                smooth={true} 
-                                duration={500} 
-                                spy={true} 
-                                to={ 'map' }
-                            >
-                                Map
-                            </Link>
+                        <MenuItem onClick={() => navigate('/map')}>
+                            Map
                         </MenuItem>
 
                         <MenuItem>

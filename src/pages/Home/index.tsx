@@ -10,18 +10,6 @@ import NFTShow from '../../components/NFTShow'
 
 const Wrapper = styled.div`
     position: relative;
-
-    @media screen and (min-width: 749px) { 
-        --gds-container-padding: 32px;
-        --gds-header-height: 96px;
-        --gds-header-height-visible: 96px;
-    }
-
-    @media screen and (max-width: 768px) {
-        --gds-container-padding: 16px;
-        --gds-header-height: 64px;
-        --gds-header-height-visible: 64px;
-    }
 `
 
 const Spacer = styled.div`
