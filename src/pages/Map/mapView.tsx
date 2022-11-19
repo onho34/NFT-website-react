@@ -1,7 +1,7 @@
 import { Component } from "react"
 import * as PIXI from 'pixi.js'
 import { pauseEvent } from "../../utils/helper"
-import { range, zoomRange, zoomRatio } from "../../constants"
+import { range, zoomRange } from "../../constants"
 
 type MapViewProps = {
     mapCenterPos: any,
@@ -38,7 +38,7 @@ export default class MapView extends Component<MapViewProps> {
              */
             const mapImg = PIXI.Sprite.from(`/assets/images/map.png`)
             this.app.stage.addChild(mapImg)
-
+                                                                                                                                                                                                                                                                                                                        
             this.app.ticker.add(() => {    
                 mapImg.anchor.set(0.5)
                 mapImg.width = range.x * this.props.zoomLevel

@@ -5,6 +5,11 @@ import { NormalButton } from "../../theme/components";
 import { Link } from 'react-scroll'
 import MenuSideBar from "../MenuSideBar";
 import { useNavigate } from "react-router-dom";
+import { shortenAddress } from "../../helper";
+import { useWeb3React } from "@web3-react/core";
+import { useModalOpen, useWalletModalToggle } from "../../hooks/store";
+import { ApplicationModal } from "../../constants";
+import WalletModal from "../WalletModal";
 
 const Wrapper = styled.header`
     z-index: 100;
@@ -42,9 +47,6 @@ const MenuItem = styled.div`
     }
 `
 
-const ConnectBtn = styled.button`
-`
-
 const LogoImg = styled.div`
     img {
         margin-right: 32px;
@@ -71,13 +73,26 @@ const MenuIcon = styled.div`
     }
 `
 
+const AddressWrapper = styled.div`
+    border-radius: 100vw;
+    border: 1px solid #2b3137;
+    padding: .2rem 1rem;
+    cursor: pointer;
+`
+
 export const Header = () => {
     const navigate = useNavigate()
+
+    const { account } = useWeb3React()
 
     const [active, setActive] = useState('active')
     const [lastScroll, setLastScroll] = useState(0)
 
     const [showSideBar, setShowSideBar] = useState(false)
+
+    const toggleWalletModal = useWalletModalToggle()
+
+    const walletModalOpen = useModalOpen( ApplicationModal.WALLET )
 
     const handleScroll = () => {
         setShowSideBar(false)
@@ -159,9 +174,18 @@ export const Header = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                    <NormalButton>
-                        Connect Wallet
-                    </NormalButton>
+                    { account 
+                        ? (
+                            <AddressWrapper onClick={toggleWalletModal}>
+                                { shortenAddress( account, 5 ) }
+                            </AddressWrapper>
+                        )
+                        : (
+                            <NormalButton onClick={ toggleWalletModal }>
+                                Connect Wallet
+                            </NormalButton>
+                        )
+                     }
 
                     <MenuIcon id="dropdownMenuBtn" className="ml-2" onClick={() => setShowSideBar(true)}>
                         <img src="/assets/images/menuIcon.svg" alt="pic"></img>
@@ -170,6 +194,11 @@ export const Header = () => {
             </div>
 
             <MenuSideBar show={showSideBar} setShow={(value: any) => setShowSideBar(value)} />
+
+            <WalletModal 
+                isOpen={walletModalOpen}
+                onClose={ toggleWalletModal }
+            />
         </Wrapper>
     )
 }

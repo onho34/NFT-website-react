@@ -1,4 +1,3 @@
-import Header from "../../components/Header"
 import MapHeader from "../../components/Header/mapHeader"
 import useStore from "../../store"
 import MapView from "./mapView"

@@ -35,4 +35,9 @@ export const NormalButton = styled.button`
     &:hover {
         background-color: rgb(139 127 255 / 64%);
     }
+
+    :disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
 `

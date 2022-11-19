@@ -1,7 +1,6 @@
 import { Component } from "react"
 import * as PIXI from 'pixi.js'
-import { pauseEvent } from "../../utils/helper"
-import { miniMapSize, range, zoomRange, zoomRatio } from "../../constants"
+import { miniMapSize, range } from "../../constants"
 import styled from "styled-components"
 
 type MapViewProps = {

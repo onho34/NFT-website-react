@@ -1,6 +1,11 @@
+import { useWeb3React } from "@web3-react/core"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
+import { useWalletModalToggle } from "../../hooks/store"
+import { useIsTransactionPending } from "../../hooks/store/transactions"
+import useMintNFT from "../../hooks/useMintNFT"
 import { NormalButton } from "../../theme/components"
+import { Loader } from "../Loader/small"
 
 const Wrapper = styled.section`
     padding-top: 10rem! important;
@@ -125,6 +130,88 @@ const Description = styled.p`
     }
 `
 
+const CommentInput = styled.div`
+    width: 344px;
+    max-width: 100%;
+
+    .border-radius-4 {
+        border-radius: 4px;
+    }
+
+    .inputWrapper {
+        min-width: 0;
+        cursor: text;
+        row-gap: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        opacity: 1;
+        color: rgba(255, 255, 255, 0.88);
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background-color: rgba(111, 76, 255, 0.04);
+        border: 1px solid rgba(111, 76, 255, 0.64);
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border 0.3s ease;
+        position: relative;
+        pointer-events: all;
+
+        input {
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 0px;
+            width: 100%;
+            height: 30px;
+            border: none !important;
+            font-family: EuclidCircular,sans-serif;
+            font-size: 16px;
+            background: transparent;
+            outline: none;
+        }
+
+        &:hover {
+            border: 1px solid rgb(111, 76, 255);
+            background-color: rgba(111, 76, 255, 0.1);
+        }
+    }
+
+    .svgWrapper {
+        flex-shrink: 0;
+        position: absolute;
+        inset-inline-end: 0px;
+        margin-bottom: -2px;
+
+        button {
+            width: 32px;
+            height: 32px;
+
+            .svgSpan {
+                position: absolute;
+                inset: 0px;
+                border-radius: 9999px;
+                background-color: rgb(111, 76, 255);
+                opacity: 0;
+                transform: scale(1);
+                transition: color 200ms ease,background-color 200ms ease,border-color 200ms ease,text-decoration-color 200ms ease,fill 200ms ease,stroke 200ms ease,opacity 200ms ease,box-shadow 200ms ease,text-shadow 200ms ease,transform 200ms ease,filter 200ms ease,backdrop-filter 200ms ease;
+            }
+
+            .svgSpan2 {
+                display: block;
+                width: 16px;
+                height: 16px;
+                opacity: 0.32;
+                transition: opacity 200ms ease;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: currentColor;
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+`
+
 const Squares = () => {
     return (
         <>
@@ -136,6 +223,16 @@ const Squares = () => {
 export const MintBox = () => {
     const [active, setActive] = useState(true)
     const [lastScroll, setLastScroll] = useState(0)
+    const [comment, setComment] = useState('')
+    const [ pendingTx, setPendingTx ] = useState(null)
+
+    const isPending = useIsTransactionPending(pendingTx ?? undefined)
+
+    const enableMintBtn = pendingTx === null || !isPending
+
+    const { mintCostBigNumber, mint } = useMintNFT(true)
+    const { account } = useWeb3React()
+    const toggleWalletModal = useWalletModalToggle()
 
     const handleScroll = () => {
         if( window.scrollY <= lastScroll ) {
@@ -154,6 +251,25 @@ export const MintBox = () => {
             window.removeEventListener('scroll', handleScroll);
         }
     })
+
+    const mintBtnClickHandler = async () => {
+        if( !account ) {
+            toggleWalletModal()
+            return
+        }
+
+        try {
+            const tx = await mint({
+                comment: comment,
+                value: mintCostBigNumber
+            })
+
+            if( tx.hash )
+                setPendingTx(tx.hash)
+        } catch(e: any) {
+            console.error('mint process error --------', e)
+        }
+    }
 
     return (
         <Wrapper className="relative">
@@ -185,8 +301,49 @@ export const MintBox = () => {
                         Before The Graph, teams had to develop and operate proprietary indexing servers. This required significant engineering and hardware resources and broke the important security properties required for decentralization.
                     </Description>
 
-                    <div className="mt-8">
-                        <NormalButton>Mint NFT</NormalButton>
+                    <div className="flex justify-center items-center w-full my-4 mt-8">
+                        <CommentInput>
+                            <div className="m-0 flex flex-col w-full">
+                                <div className="border-radius-4">
+                                    <div className="inputWrapper m-0 flex flex-col">
+                                        <div className="m-0 flex items-center justify-center">
+                                            <input 
+                                                type="text" 
+                                                placeholder="Comment for NFT to mint" 
+                                                aria-label="Comment for NFT to mint" 
+                                                value={comment}
+                                                onChange={ (e: any) => setComment(e.target.value) }
+                                            />
+
+                                            <div className="svgWrapper">
+                                                <button>
+                                                    <span className="svgSpan"></span>
+
+                                                    <div className="m-0 p-0 flex flex-col justify-center items-center w-full h-full">
+                                                        <span className="svgSpan2">
+                                                            <svg aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path fillRule="evenodd" clipRule="evenodd" d="M9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5C8.82843 9.5 9.5 8.82843 9.5 8ZM8 5.5C9.38071 5.5 10.5 6.61929 10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5Z"></path><path fillRule="evenodd" clipRule="evenodd" d="M6 8.5L1 8.5L1 7.5L6 7.5L6 8.5Z"></path><path fillRule="evenodd" clipRule="evenodd" d="M15.3536 8.35355L8.35355 15.3535L7.64645 14.6464L14.2929 7.99999L7.64645 1.35355L8.35355 0.646439L15.3536 7.64644C15.4473 7.74021 15.5 7.86738 15.5 7.99999C15.5 8.1326 15.4473 8.25978 15.3536 8.35355Z"></path></svg>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CommentInput>
+                    </div>
+
+                    <div>
+                        <NormalButton 
+                            onClick={mintBtnClickHandler}
+                            disabled={ !enableMintBtn }
+                        >
+                            { (pendingTx && isPending) ? (
+                                <>
+                                    <Loader size='25' />
+                                </>
+                            ) : 'Mint NFT' }
+                        </NormalButton>
                     </div>
                 </Content>
             </div>
