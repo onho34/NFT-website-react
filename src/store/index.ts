@@ -1,6 +1,6 @@
 import create from "zustand"
 import produce from "immer"
-import { zoomRange } from "../constants";
+import { range, zoomRange } from "../constants";
 
 const now = () => new Date().getTime()
 
@@ -10,11 +10,23 @@ const useStore = create((set) => ({
 		y: window.innerHeight / 2,
 	},
 	updateMapCenterPos: (val: any) => set(produce(state => {
-		state.mapCenterPos.x = val.x;
-		state.mapCenterPos.y = val.y;
+		state.mapCenterPos.x = val.x
+		state.mapCenterPos.y = val.y
+
+        const width = range.x * state.zoomLevel
+        const height = range.y * state.zoomLevel
+
+        if( state.mapCenterPos.x - width / 2 > 0 )
+            state.mapCenterPos.x = width / 2
+        if( state.mapCenterPos.x + width / 2 < window.innerWidth )
+            state.mapCenterPos.x = window.innerWidth - width / 2
+        if( state.mapCenterPos.y - height / 2 > 0 )
+            state.mapCenterPos.y = height / 2
+        if( state.mapCenterPos.y + height / 2 < window.innerHeight )
+            state.mapCenterPos.y = window.innerHeight - height / 2
 	})),
 
-	zoomLevel: 10,
+	zoomLevel: 2,
 	updateZoomLevel: (val: any) => set(produce((state) => {
 		state.zoomLevel = val
 

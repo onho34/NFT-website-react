@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="709px" height="809px" viewBox="0 0 709 809" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Global / Haze / Cold Copy 4</title>
+    <defs>
+        <radialGradient cx="100%" cy="100%" fx="100%" fy="100%" r="141.421356%" id="radialGradient-1">
+            <stop stop-color="#FFA801" offset="0%"></stop>
+            <stop stop-color="#ED4A6D" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0.731102196%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#0C0A1D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#0C0A1D" offset="100%"></stop>
+        </linearGradient>
+        <path d="M312.519647,65.4538866 C273.328722,126.653641 250.007825,99.4083692 161.818632,120.960641 C105.522275,134.718725 77.8823994,-13.0177569 50.9581147,115.26764 C23.6760343,245.257817 25.7006688,378.716045 51.0340291,401.488046 C76.3673895,424.260048 133.062588,434.373682 148.435823,492.726936 C163.809059,551.08019 135.921201,568.64709 229.243238,581.930757 C322.565275,595.214425 374.460434,561.361067 404.806966,481.873239 C435.153498,402.385411 551.528035,602.700778 571.23176,393.008596 C590.935485,183.316413 591.945907,190.49457 554.920227,120.755315 C517.894546,51.0160593 491.80189,2.35646523 433.989863,50.7469689 C376.177835,99.1374725 351.710572,4.25413204 312.519647,65.4538866 Z" id="path-3"></path>
+        <filter x="-27.1%" y="-27.1%" width="154.2%" height="154.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="100%" y1="99.9768772%" x2="0%" y2="0.0231228487%" id="linearGradient-5">
+            <stop stop-color="#6F4CFF" offset="0%"></stop>
+            <stop stop-color="#ED4A6D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0.731102196%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#0C0A1D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#0C0A1D" offset="100%"></stop>
+        </linearGradient>
+        <path d="M180.736111,133.79703 C81.8269527,121.422719 23.6277183,364.262839 53.9,439.360536 C84.1722817,514.458233 177.741667,529.609617 300.513889,581.311881 C423.286111,633.014146 525.203601,584.412623 542.77743,388.182615 C560.351259,191.952608 561.252458,198.669929 528.22911,133.407913 C495.205762,68.1458967 454.957217,88.3528788 403.394444,133.636727 C351.831672,178.920575 261.039857,143.843657 180.736111,133.79703 Z" id="path-7"></path>
+        <filter x="-29.5%" y="-29.5%" width="158.9%" height="159.0%" filterUnits="objectBoundingBox" id="filter-8">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <radialGradient cx="35.7813869%" cy="53.9356542%" fx="35.7813869%" fy="53.9356542%" r="47.8157177%" gradientTransform="translate(0.357814,0.539357),scale(0.906183,1.000000),rotate(-2.130987),scale(1.000000,1.335804),translate(-0.357814,-0.539357)" id="radialGradient-9">
+            <stop stop-color="#DA7644" offset="0%"></stop>
+            <stop stop-color="#3A0C83" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-33.0%" y="-36.5%" width="166.1%" height="172.9%" filterUnits="objectBoundingBox" id="filter-10">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <radialGradient cx="35.7813869%" cy="53.9356542%" fx="35.7813869%" fy="53.9356542%" r="43.4517947%" gradientTransform="translate(0.357814,0.539357),scale(1.000000,0.489648),rotate(-4.793655),scale(1.000000,1.335804),translate(-0.357814,-0.539357)" id="radialGradient-11">
+            <stop stop-color="#DA7644" offset="0%"></stop>
+            <stop stop-color="#DA7644" stop-opacity="0" offset="75.9976774%"></stop>
+            <stop stop-color="#3A0C83" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-74.4%" y="-36.5%" width="248.9%" height="172.9%" filterUnits="objectBoundingBox" id="filter-12">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <radialGradient cx="35.7813869%" cy="53.9356542%" fx="35.7813869%" fy="53.9356542%" r="43.4517947%" gradientTransform="translate(0.357814,0.539357),scale(1.000000,0.489648),rotate(-4.793655),scale(1.000000,1.335804),translate(-0.357814,-0.539357)" id="radialGradient-13">
+            <stop stop-color="#AAEAFF" offset="0%"></stop>
+            <stop stop-color="#AAEAFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-74.4%" y="-36.5%" width="248.9%" height="172.9%" filterUnits="objectBoundingBox" id="filter-14">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Marketing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Landingpage" transform="translate(0.000000, -5090.000000)">
+            <g id="Global-/-Haze-/-Warm---2" transform="translate(0.000000, 5176.000000)">
+                <g id="Path-2" opacity="0.24" filter="url(#filter-4)">
+                    <use fill="url(#radialGradient-1)" xlink:href="#path-3"></use>
+                    <use fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                </g>
+                <g id="Path-2-Copy" opacity="0.8" filter="url(#filter-8)">
+                    <use fill="url(#linearGradient-5)" xlink:href="#path-7"></use>
+                    <use fill="url(#linearGradient-6)" xlink:href="#path-7"></use>
+                </g>
+                <path d="M228.647222,179.920792 C161.309058,171.503582 67.0848275,403.293544 87.6944444,454.376238 C108.304061,505.458932 274.465667,466.856018 358.05,502.024752 C441.634333,537.193487 453.43243,508.216115 465.396836,374.737223 C477.361242,241.25833 557.418677,158.748737 534.936111,114.356436 C512.453545,69.9641343 283.31867,186.754674 228.647222,179.920792 Z" id="Path-2-Copy" fill="url(#radialGradient-9)" filter="url(#filter-10)"></path>
+                <path d="M114.728359,121.403035 C84.8497286,112.985825 43.041476,344.775787 52.1861733,395.858481 C61.3308707,446.941175 135.058471,408.338261 172.145692,443.506995 C209.232914,478.67573 214.467849,449.698358 219.776579,316.219465 C225.085308,182.740573 260.607608,100.23098 250.631865,55.8386786 C240.656121,11.4463773 138.986638,128.236917 114.728359,121.403035 Z" id="Path-2-Copy-2" fill="url(#radialGradient-11)" filter="url(#filter-12)"></path>
+                <path d="M170.33947,264.729768 C140.46084,256.312557 98.6525871,488.102519 107.797284,539.185213 C116.941982,590.267907 190.669582,551.664994 227.756803,586.833728 C264.844025,622.002463 270.078961,593.025091 275.38769,459.546198 C280.696419,326.067306 316.218719,243.557713 306.242976,199.165411 C296.267232,154.77311 194.597749,271.56365 170.33947,264.729768 Z" id="Path-2-Copy-3" fill="url(#radialGradient-13)" opacity="0.513927641" filter="url(#filter-14)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

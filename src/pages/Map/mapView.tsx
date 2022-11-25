@@ -1,7 +1,8 @@
 import { Component } from "react"
 import * as PIXI from 'pixi.js'
 import { pauseEvent } from "../../utils/helper"
-import { range, zoomRange } from "../../constants"
+import { levelArea, range, zoomRange } from "../../constants"
+import { generateRandomColor, getRandomValues } from "../../helper/math"
 
 type MapViewProps = {
     mapCenterPos: any,
@@ -14,6 +15,7 @@ export default class MapView extends Component<MapViewProps> {
     app: any
     pointDownPos: any
     moveDistance: any
+    spritesArray: any
 
     constructor(props: MapViewProps) {
         super(props)
@@ -28,6 +30,9 @@ export default class MapView extends Component<MapViewProps> {
     }
 
     componentDidMount(): void {
+        const spritesArray: any[] = []
+        this.spritesArray = spritesArray
+
         const onReady = () => {
             this.app = new PIXI.Application({ resizeTo: window, backgroundAlpha: 0, width: window.innerWidth, height: window.innerHeight })
 
@@ -38,13 +43,92 @@ export default class MapView extends Component<MapViewProps> {
              */
             const mapImg = PIXI.Sprite.from(`/assets/images/map.png`)
             this.app.stage.addChild(mapImg)
-                                                                                                                                                                                                                                                                                                                        
-            this.app.ticker.add(() => {    
+
+            const graphics = new PIXI.Graphics()
+            this.app.stage.addChild(graphics)
+
+            const container = new PIXI.ParticleContainer(100000, {
+                scale: true,
+                position: true,
+                rotation: true,
+                uvs: true,
+                alpha: true,
+            })
+            container._batchSize = 16383
+            this.app.stage.addChild(container)
+
+            /**
+             * Level 0 ~ 3 sprites
+             */
+            for( let i = 0; i < 4; i++ ) {
+                const result = getRandomValues((levelArea as any)[i].position[0], (levelArea as any)[i].position[1], (levelArea as any)[i].count)
+                for( let j = 0; j < result.length; j++ ) {
+                    const bunny = PIXI.Sprite.from(`/assets/images/card.png`) as any
+                    bunny.mapPosition = {
+                        x: result[j].x,
+                        y: result[j].y,
+                    }
+                    bunny.size = (levelArea as any)[i].size
+                    // bunny.tint = generateRandomColor()
+                    spritesArray.push(bunny)
+                    container.addChild(bunny)
+                }
+            }
+
+            /**
+             * Level 4 sprites
+             */
+            for( let i = 0; i < 2; i++ ) {
+                const bunny = PIXI.Sprite.from(`/assets/images/card.png`) as any
+                bunny.mapPosition = {
+                    x: (levelArea as any)[4].position[i].x,
+                    y: (levelArea as any)[4].position[i].y,
+                }
+                bunny.size = (levelArea as any)[4].size
+                // bunny.tint = generateRandomColor()
+                spritesArray.push(bunny)
+                container.addChild(bunny)
+            }
+
+            /**
+             * Level 5 sprite
+             */
+            const bunny = PIXI.Sprite.from(`/assets/images/card.png`) as any
+            bunny.mapPosition = {
+                x: (levelArea as any)[5].position.x,
+                y: (levelArea as any)[5].position.y,
+            }
+            bunny.size = (levelArea as any)[5].size
+            // bunny.tint = generateRandomColor()
+            spritesArray.push(bunny)
+            container.addChild(bunny)
+
+            this.app.ticker.add(() => {
                 mapImg.anchor.set(0.5)
                 mapImg.width = range.x * this.props.zoomLevel
                 mapImg.height = range.y * this.props.zoomLevel
                 mapImg.x = this.props.mapCenterPos.x
                 mapImg.y = this.props.mapCenterPos.y
+
+                // graphics.clear()
+                // graphics.lineStyle(2, 0xff0000, 1);
+
+                // for( let i = 0; i < 5; i++ ) {
+                //     graphics.drawRect( this.props.mapCenterPos.x - (levelArea as any)[i].position[0].x * this.props.zoomLevel,
+                //         this.props.mapCenterPos.y - (levelArea as any)[i].position[0].y * this.props.zoomLevel,
+                //         ((levelArea as any)[i].position[0].x - (levelArea as any)[i].position[1].x) * this.props.zoomLevel,
+                //         ((levelArea as any)[i].position[0].y - (levelArea as any)[i].position[1].y) * this.props.zoomLevel
+                //     );
+                // }
+
+                for( let i = 0; i < spritesArray.length; i++ ) {
+                    const sprite = spritesArray[i]
+                    sprite.anchor.set(0.5)
+                    sprite.width = sprite.size * this.props.zoomLevel * 2
+                    sprite.height = sprite.size * this.props.zoomLevel * 2
+                    sprite.x = this.props.mapCenterPos.x - sprite.mapPosition.x * this.props.zoomLevel
+                    sprite.y = this.props.mapCenterPos.y - sprite.mapPosition.y * this.props.zoomLevel
+                }
             })
 
             this.app.view.addEventListener('pointerdown', this.onPointerDownHandler, false)

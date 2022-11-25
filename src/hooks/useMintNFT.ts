@@ -1,8 +1,7 @@
 import { BigNumber } from "ethers"
 import { useCallback, useEffect, useState } from "react"
-// import { useMoralisWeb3Api } from "react-moralis"
+import {NotificationManager} from 'react-notifications'
 import { useActiveWeb3React } from "."
-import { ChainId, contractAddress } from "../constants"
 import { formatFromBalance } from "../utils"
 import { useTransactionAdder } from "./store/transactions"
 import { useMintContract } from "./useContract"
@@ -16,8 +15,6 @@ const useMintNFT = (props: any) => {
 
     const addTransaction = useTransactionAdder() as any
 
-    // const Web3Api = useMoralisWeb3Api()
-
     const fetchMintInfo = useCallback(async () => {
         if( mintContract ) {
             try {
@@ -29,16 +26,6 @@ const useMintNFT = (props: any) => {
             } catch(e) {
                 console.error('fetchMintInfo ------ : ', e)
             }
-        } else {
-            // const options = {
-            //     chain: "eth",
-            //     address: contractAddress[ ChainId['MAINNET'] ],
-            //     limit: 1,
-            // } as any
-
-            // const ethNFTs = await Web3Api.token.getAllTokenIds(options);
-
-            // setTotalSupply( (ethNFTs as any).total )
         }
     }, [ mintContract, account, chainId ])
 
@@ -52,14 +39,16 @@ const useMintNFT = (props: any) => {
     const mint = useCallback(
         async ( input: any ) => {
             try {
-                const tx = await mintContract?.mintToken( input.comment, 1, {
+                const tx = await mintContract?.mintToken( input.comment, {
                     from: account,
                     value: input.value
                 } )
                 addTransaction(tx, { summary: `Mint succeed!` })
                 return tx
-            } catch(e) {
+            } catch(e: any) {
                 console.error('mint -------', e)
+                if( JSON.stringify(e).indexOf('execution reverted: Elimination has been started') !== -1 )
+                    NotificationManager.warning( 'Elimination has been started.' )
                 return e
             }
         },

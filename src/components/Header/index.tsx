@@ -118,9 +118,16 @@ export const Header = () => {
         <Wrapper className={`${active}`}>
             <div className="container flex justify-between items-center h-full w-full">
                 <div className="flex justify-center items-center">
-                    <LogoImg className="cursor-pointer">
-                        <img alt="pic" src={logoImg}></img>
-                    </LogoImg>
+                    <Link
+                        smooth={true} 
+                        duration={500} 
+                        spy={true} 
+                        to={ 'home' }
+                    >
+                        <LogoImg className="cursor-pointer">
+                            <img alt="pic" src={logoImg}></img>
+                        </LogoImg>
+                    </Link>
 
                     <MenuGroup className="flex justify-center items-center">
                         <MenuItem>
@@ -149,15 +156,8 @@ export const Header = () => {
                             Map
                         </MenuItem>
 
-                        <MenuItem>
-                            <Link
-                                smooth={true} 
-                                duration={500} 
-                                spy={true} 
-                                to={ 'nft' }
-                            >
-                                NFT
-                            </Link>
+                        <MenuItem onClick={() => navigate('/nfts')}>
+                            NFTs
                         </MenuItem>
 
                         <MenuItem>

@@ -32,13 +32,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Web3ReactProvider getLibrary={getLibrary}>
             <Web3ProviderNetwork getLibrary={getLibrary}>
-                {/* <MoralisProvider appId={ MoralisAPIKey.appId } serverUrl={ MoralisAPIKey.serverUrl }> */}
-                    <Updaters />
+                <Updaters />
 
-                    <Router>
-                        <App />
-                    </Router>
-                {/* </MoralisProvider> */}
+                <Router>
+                    <App />
+                </Router>
             </Web3ProviderNetwork>
         </Web3ReactProvider>
     </React.StrictMode>

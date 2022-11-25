@@ -132,7 +132,7 @@ const ImageWrapper = styled.div`
     }
 
     div {
-        width: 50%;
+        width: 100%;
         padding: 1rem;
         position: relative;
 
@@ -173,16 +173,9 @@ export const NFTShow = () => {
                             <ImageWrapper>
                                 <div className="wrapper relative flex flex-wrap">
                                     <div>
-                                        <img alt="pic" src='/assets/images/nfts/1.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/2.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/3.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/4.png'></img>
+                                        <video muted autoPlay loop>
+                                            <source src="/assets/videos/sample.mp4" type="video/mp4" />
+                                        </video>
                                     </div>
                                 </div>
                             </ImageWrapper>
@@ -190,16 +183,9 @@ export const NFTShow = () => {
                             <ImageWrapper>
                                 <div className="wrapper relative flex flex-wrap">
                                     <div>
-                                        <img alt="pic" src='/assets/images/nfts/5.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/6.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/7.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/8.png'></img>
+                                        <video muted autoPlay loop>
+                                            <source src="/assets/videos/sample.mp4" type="video/mp4" />
+                                        </video>
                                     </div>
                                 </div>
                             </ImageWrapper>
@@ -207,16 +193,19 @@ export const NFTShow = () => {
                             <ImageWrapper>
                                 <div className="wrapper relative flex flex-wrap">
                                     <div>
-                                        <img alt="pic" src='/assets/images/nfts/9.png'></img>
+                                        <video muted autoPlay loop>
+                                            <source src="/assets/videos/sample.mp4" type="video/mp4" />
+                                        </video>
                                     </div>
+                                </div>
+                            </ImageWrapper>
+
+                            <ImageWrapper>
+                                <div className="wrapper relative flex flex-wrap">
                                     <div>
-                                        <img alt="pic" src='/assets/images/nfts/10.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/11.png'></img>
-                                    </div>
-                                    <div>
-                                        <img alt="pic" src='/assets/images/nfts/12.png'></img>
+                                        <video muted autoPlay loop>
+                                            <source src="/assets/videos/sample.mp4" type="video/mp4" />
+                                        </video>
                                     </div>
                                 </div>
                             </ImageWrapper>
@@ -224,7 +213,7 @@ export const NFTShow = () => {
                     </LeftPanel>
 
                     <RightPanel className="relative flex flex-col justify-center">
-                        <h2 className="title">A Fantastic Ghost NFTs</h2>
+                        <h2 className="title">A Fantastic RiseToTop NFTs</h2>
 
                         <p className="description">
                             Subgraphs can be composed into a global graph of all the world's public information. This data can be transformed, organized, and shared across applications for anyone to query with just a few keystrokes.
