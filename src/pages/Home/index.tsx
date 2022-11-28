@@ -28,12 +28,12 @@ export const Home = () => {
                     <Intro />
                 </div>
 
-                <div id="nft">
-                    <NFTShow />
-                </div>
-
                 <div id="mint">
                     <MintBox />
+                </div>
+
+                <div id="nft">
+                    <NFTShow />
                 </div>
 
                 <div id="faq">
