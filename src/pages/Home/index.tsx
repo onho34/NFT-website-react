@@ -23,13 +23,13 @@ export const Home = () => {
             <Suspense fallback={<Loader />}>
                 <Header />
 
-                <div id="mint">
-                    <MintBox />
-                </div>
-
                 <div id="home">
                     <Spacer />
                     <Intro />
+                </div>
+
+                <div id="mint">
+                    <MintBox />
                 </div>
 
                 <div id="nft">
