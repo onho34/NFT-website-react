@@ -101,7 +101,7 @@ export const MenuSideBar = ({ show, setShow }: any) => {
                         to={ 'mint' }
                     >
                         <MenuItem onClick={() => setShow(false)}>
-                            Mint
+                            The Mountain
                         </MenuItem>
                     </Link>
 
