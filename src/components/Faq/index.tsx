@@ -109,28 +109,32 @@ export const FaqComponent = () => {
     const data = {
         rows: [
             {
-                title: "What is Ghost nft?",
-                content: "Ghosts are a collection of 10,000 unique characters battling for their existence on the Ethereum blockchain."
+                title: "What is Rise to the Top NFT?",
+                content: "Rise to the Top is a 10,000 climber NFT collection that are uniquely named and will be your game piece in the Rise to the Top game. Pieces will be eliminated in accordance with the elimination schedule, remaining pieces will be able to claim sums of Ethereum based on position reached in accordance with the payout schedule."
             },
             {
-                title: "How much does a Ghost cost?",
-                content: "Ghosts will cost 0.06 ETH + Gass Fee on both presale and launch day."
+                title: "How much does a Rise to the Top climber cost?",
+                content: "Rise to the Top climbers will cost .5 Ethereum to attend the competition."
             },
             {
-                title: "When will my Ghost be revealed?",
-                content: "After reaching 100% all Ghosts will be revealed on opensea."
+                title: "When will the elimination process start?",
+                content: "The elimination process will start after 48 hours from the start of the minting or 24 hours after all 10,000 NFTs have been minted."
             },
             {
-                title: "What are my benefits as a holder?",
-                content: "Holders will automatically join Buffs private club where all the fun begins. As a member, you will be part of all activities and future ideas. As a holder, you will have the ability to make a change on our journey by being part of taking decisions for every step we take together as a community."
+                title: "What do I do with my climber NFT?",
+                content: "Once the game begins, elimination level will start to rise. Check back each day to view the status of your climber and see if you are still on the mountain. The higher up the mountain you make it, the more you win."
             },
             {
-                title: "How can I own a Ghost?",
-                content: "The only way to own a Ghost before revealing will be by minting one on ghostnft.com"
+                title: "How many winners are there?",
+                content: "At a full mint out, there will be 1,113 winners with 1 NFT that will rise to the top, getting 2000x their original contribution"
             },
             {
-                title: "What about royalties?",
-                content: "The royalties will be 5%. 50% FOR THE COMMUNITY"
+                title: "How can I trust this project?",
+                content: "We use chain link oracle for random number generation for elimination and some trustable 3rd party audit."
+            },
+            {
+                title: "What happens if the project does not fully mint out in the 48 hours?",
+                content: "In the rare case that this happens, the game will proceed in accordance with the whitepaper as the prizes are setup based on the percentage of the collective mint amount in Ethereum."
             }
         ]
     };
@@ -160,7 +164,7 @@ export const FaqComponent = () => {
                 <div className="mb-12">
                     <Title>FAQ</Title>
                     <Description>
-                        Learn more about the lottery and RiseToTop community.
+                        Learn more about the Rise to the Top game and community.
                     </Description>
                 </div>
 

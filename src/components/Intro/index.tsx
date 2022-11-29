@@ -112,11 +112,11 @@ export const Intro = () => {
 
             <LeftPanel>
                 <Title>
-                    NFTs <br/> for a vibrant <br/> decentralized <br/> lottery
+                    <br/> Rise to the Top <br/> 
                 </Title>
 
                 <SubTitle>
-                    The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible.
+                    Riches await at the top of the mountain, but only for those who dare to climb.
                 </SubTitle>
 
                 <ButtonWrapper>

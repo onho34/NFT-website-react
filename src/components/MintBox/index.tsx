@@ -294,11 +294,11 @@ export const MintBox = () => {
 
                 <Content className="relative">
                     <Title>
-                        Mint NFT to <br className="newline" /> attend lottery
+                        Mint an NFT to <br className="newline" /> enter
                     </Title>
 
                     <Description>
-                        Before The Graph, teams had to develop and operate proprietary indexing servers. This required significant engineering and hardware resources and broke the important security properties required for decentralization.
+                        In the text box, enter a name for your climber. Names will be unique, so if the name is already taken, you will have to pick a new untaken name before you can mint.
                     </Description>
 
                     <div className="flex justify-center items-center w-full my-4 mt-8">
@@ -309,8 +309,8 @@ export const MintBox = () => {
                                         <div className="m-0 flex items-center justify-center">
                                             <input 
                                                 type="text" 
-                                                placeholder="Comment for NFT to mint" 
-                                                aria-label="Comment for NFT to mint" 
+                                                placeholder="Name your climber" 
+                                                aria-label="Name your climber" 
                                                 value={comment}
                                                 onChange={ (e: any) => setComment(e.target.value) }
                                             />

@@ -213,10 +213,18 @@ export const NFTShow = () => {
                     </LeftPanel>
 
                     <RightPanel className="relative flex flex-col justify-center">
-                        <h2 className="title">A Fantastic RiseToTop NFTs</h2>
+                        <h2 className="title">Elimination schedule</h2>
 
                         <p className="description">
-                            Subgraphs can be composed into a global graph of all the world's public information. This data can be transformed, organized, and shared across applications for anyone to query with just a few keystrokes.
+                            This is our elimination schedule.
+                        </p>
+                        
+                        <br/>
+
+                        <h2 className="title">Payout schedule</h2>
+                        
+                        <p className="description">
+                            This is the game elimination schedule.
                         </p>
                     </RightPanel>
                 </PanelWrapper>

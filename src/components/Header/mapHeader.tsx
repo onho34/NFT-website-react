@@ -94,7 +94,7 @@ export const MapHeader = () => {
                         </MenuItem>
 
                         <MenuItem onClick={() => navigate('/map')} className={`${ location.pathname === '/map' ? 'active' : '' }`}>
-                            Map
+                            The Mountain
                         </MenuItem>
 
                         <MenuItem onClick={() => navigate('/nfts')} className={`${ location.pathname === '/nfts' ? 'active' : '' }`}>

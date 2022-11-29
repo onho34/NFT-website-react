@@ -153,7 +153,7 @@ export const Header = () => {
                         </MenuItem>
 
                         <MenuItem onClick={() => navigate('/map')}>
-                            Map
+                            The Mountain
                         </MenuItem>
 
                         <MenuItem onClick={() => navigate('/nfts')}>

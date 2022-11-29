@@ -31,10 +31,11 @@ export const Home = () => {
                 <div id="mint">
                     <MintBox />
                 </div>
-
+                
                 <div id="nft">
                     <NFTShow />
                 </div>
+
 
                 <div id="faq">
                     <FaqComponent />

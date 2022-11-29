@@ -144,12 +144,15 @@ export const Footer = () => {
 
             <Wrapper>
                 <ContentWrapper className="m-0 p-0 flex flex-col justify-start items-center">
+
+                    {/* 
+                    
                     <Contact>
                         <div className="m-0 flex flex-col w-full">
                             <div className="border-radius-4">
                                 <div className="inputWrapper m-0 flex flex-col">
                                     <div className="m-0 flex items-center justify-center">
-                                        <input type="email" placeholder="Subscribe to our newsletter" aria-label="Subscribe to our newsletter" />
+                                        <input type="email" placeholder="Subscribe to our newsletter" aria-label="Subscribe to our newsletter" /> 
 
                                         <div className="svgWrapper">
                                             <button>
@@ -167,6 +170,8 @@ export const Footer = () => {
                             </div>
                         </div>
                     </Contact>
+
+                    */}
 
                     <nav>
                         <ul>
@@ -199,7 +204,7 @@ export const Footer = () => {
                                     spy={true} 
                                     to={ 'map' }
                                 >
-                                    Map
+                                    The Mountain
                                 </Link>
                             </li>
 
@@ -228,18 +233,6 @@ export const Footer = () => {
 
                         <ul className="mt-8">
                             <li>
-                                <a className="subNav">Ghost Foundation</a>
-                            </li>
-
-                            <li>
-                                <a className="subNav">Forum</a>
-                            </li>
-
-                            <li>
-                                <a className="subNav">Testnet</a>
-                            </li>
-
-                            <li>
                                 <a className="subNav">Privacy Policy</a>
                             </li>
 
@@ -260,20 +253,8 @@ export const Footer = () => {
                             </li>
 
                             <li>
-                                <a>
-                                    <Twitter size={18} />
-                                </a>
-                            </li>
-
-                            <li>
-                                <a>
-                                    <Facebook size={18} />
-                                </a>
-                            </li>
-
-                            <li>
-                                <a>
-                                    <Instagram size={18} />
+                                <a href={"https://twitter.com/RiseToTheTopLab"} target={"_blank"}>
+                                    <Twitter size={18}/>
                                 </a>
                             </li>
 
